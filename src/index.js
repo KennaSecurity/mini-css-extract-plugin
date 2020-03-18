@@ -219,6 +219,7 @@ class MiniCssExtractPlugin {
         const { hashFunction, hashDigest, hashDigestLength } = outputOptions;
         const hash = createHash(hashFunction);
 
+        chunk.modulesIterable.sort();
         for (const m of chunk.modulesIterable) {
           if (m.type === MODULE_TYPE) {
             m.updateHash(hash);
